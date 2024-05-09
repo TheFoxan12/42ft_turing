@@ -1,0 +1,22 @@
+{
+  "name" : "",
+  "alphabet": [ "" ],
+  "blank" : "",
+  "states" : [ "" ],
+  "initial" : "",
+  "finals" : [ "" ],
+  "transitions" : {
+    "scanright": [
+      { "read" : "", "to_state": "", "write": "", "action": ""}
+    ],
+    "eraseone": [
+      { "read" : "", "to_state": "" , "write": "", "action": "" }
+    ],
+    "subone": [
+      { "read" : "", "to_state": "" , "write": "", "action": "" }
+    ],
+    "skip": [
+      { "read" : "", "to_state": "" , "write": "", "action": "" }
+    ]
+  }
+}

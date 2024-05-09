@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FSharp.Data" Version="6.4.0" />
+        <Compile Include="Parsing.fs" />
+        <Compile Include="Display.fs" />
+        <Compile Include="Records.fs" />
+        <Compile Include="Utils.fs" />
+        <Compile Include="TransitionsHandling.fs" />
+        <Compile Include="Machine.fs" />
+        <Compile Include="Program.fs" />
+        <Content Include="machine1.json" />
+        <Content Include="unaryrefac.json" />
+        <Content Include="machine2.json" />
+        <Content Include="machine3.json" />
+        <Content Include="machine4.json" />
+        <Content Include="machine5.json" />
+        <Content Include="machine6.json" />
+        <Content Include="machine7.json" />
+        <Content Include="model.json" />
+        <Content Include="inception_input.txt" />
+        <Content Include="Makefile" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="bin\**" />
+    </ItemGroup>
+
+</Project>

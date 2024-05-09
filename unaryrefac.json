@@ -1,0 +1,22 @@
+{
+  "name" : "unary_addition",
+  "alphabet": [ "1", "+", "." ],
+  "blank" : ".",
+  "states" : [ "remove_first", "run", "HALT" ],
+  "initial" : "remove_first",
+  "finals" : [ "HALT" ],
+  "transitions" : {
+    "remove_first": [
+      { "read" : "1", "to_state": "run", "write": ".", "action": "RIGHT"},
+      { "read" : "+", "to_state": "HALT", "write": ".", "action": "RIGHT"}
+    ],
+    "run" : [
+      { "read" : "1", "to_state": "run", "write": "1", "action": "RIGHT"},
+      { "read" : "+", "to_state": "HALT", "write": "1", "action": "RIGHT"},
+      { "read" : ".", "to_state": "HALT", "write": "1", "action": "LEFT"}
+    ],
+    "HALT": [
+      { "read" : ".", "to_state": "HALT", "write": ".", "action": "LEFT"}
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name" : "palindrome",
+  "alphabet": [ "u", "w", "y", "n", "." ],
+  "blank" : ".",
+  "states" : [ "begin", "find_end_yin", "find_end_yang", "check_yin", "check_yang", "find_begin", "false", "HALT" ],
+  "initial" : "begin",
+  "finals" : [ "HALT" ],
+  "transitions" : {
+    "begin" : [
+      { "read" : "u", "to_state": "find_end_yin", "write": ".", "action": "RIGHT"},
+      { "read" : "w", "to_state": "find_end_yang", "write": ".", "action": "RIGHT"},
+      { "read" : ".", "to_state": "HALT", "write": "y", "action": "LEFT"}
+    ],
+    "find_end_yin" : [
+      { "read" : "u", "to_state": "find_end_yin", "write": "u", "action": "RIGHT"},
+      { "read" : "w", "to_state": "find_end_yin", "write": "w", "action": "RIGHT"},
+      { "read" : ".", "to_state": "check_yin", "write": ".", "action": "LEFT"}
+    ],
+    "find_end_yang" : [
+      { "read" : "u", "to_state": "find_end_yang", "write": "u", "action": "RIGHT"},
+      { "read" : "w", "to_state": "find_end_yang", "write": "w", "action": "RIGHT"},
+      { "read" : ".", "to_state": "check_yang", "write": ".", "action": "LEFT"}
+    ],
+    "check_yin" : [
+      { "read" : "w", "to_state": "false", "write": "w", "action": "RIGHT"},
+      { "read" : "u", "to_state": "find_begin", "write": ".", "action": "LEFT"},
+      { "read" : ".", "to_state": "find_begin", "write": ".", "action": "LEFT"}
+    ],
+    "check_yang" : [
+      { "read" : "u", "to_state": "false", "write": "u", "action": "RIGHT"},
+      { "read" : "w", "to_state": "find_begin", "write": ".", "action": "LEFT"},
+      { "read" : ".", "to_state": "find_begin", "write": ".", "action": "LEFT"}
+    ],
+    "find_begin" : [
+      { "read" : "u", "to_state": "find_begin", "write": "u", "action": "LEFT"},
+      { "read" : "w", "to_state": "find_begin", "write": "w", "action": "LEFT"},
+      { "read" : ".", "to_state": "begin", "write": ".", "action": "RIGHT"}
+    ],
+    "false" : [
+      { "read" : ".", "to_state": "HALT", "write": "n", "action": "LEFT"}
+    ],
+    "HALT": [
+      { "read" : ".", "to_state": "HALT", "write": ".", "action": "LEFT"}
+    ]
+  }
+}
